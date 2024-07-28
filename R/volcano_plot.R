@@ -86,9 +86,9 @@ erupt <- function(
 
     gene_name %in% genes ~ "FOUND",
 
-    log2FoldChange > highcut & padj < pcut ~ "UP",
+    log2FoldChange > up_reg & padj < pcut ~ "UP",
 
-    log2FoldChange < lowcut & padj < pcut ~ "DOWN",
+    log2FoldChange < down_reg & padj < pcut ~ "DOWN",
 
     .default = as.character("NO"))
 
