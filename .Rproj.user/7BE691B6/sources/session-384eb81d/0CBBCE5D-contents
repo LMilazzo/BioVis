@@ -1,0 +1,14 @@
+Package: BioVis
+Type: Package
+Title: Gene Expression Visuals
+Version: 0.1.0
+Author: Lucas Milazzo
+Maintainer: The package maintainer <lucas.milazzo1311@gmail.com>
+Description: No Description Yet
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+  dplyr,
+  ggplot2,
+  ggrepel
