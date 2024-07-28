@@ -189,7 +189,7 @@ erupt <- function(
     geom_vline(xintercept = c(down_reg, up_reg), color='black', linetype = 'dashed') +
 
     #Horizontal Pvalue line
-    geom_hline(yintercept= -log10(pcut), color='black', linetype='dashed') +
+    geom_hline(yintercept= -log10(pval), color='black', linetype='dashed') +
 
     #Axis labels
     labs(x = expression("logFC"),
