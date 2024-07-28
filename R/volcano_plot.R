@@ -153,9 +153,9 @@ erupt <- function(
 
   data$glabel <- ifelse(
 
-    deg$gene_name %in% c(p_top, l_top),
+    data$gene_name %in% c(p_top, l_top),
 
-    deg$gene_name, #value for if
+    data$gene_name, #value for if
 
     NA #value for else
   )
