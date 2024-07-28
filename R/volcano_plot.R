@@ -31,7 +31,7 @@ erupt <- function(
   pval = 0.05,
   population = 0.3,
   lab_density = 0.25,
-  genes = c("NOTHING TO SEARCH"),
+  genes = NULL,
   title = "",
   subtitle = "",
   caption = ""
@@ -64,8 +64,8 @@ erupt <- function(
   }
 
 #SEARCH GENES
-  if( is.null( genes ) || !is.character( genes ) || length ( genes ) < 1 ){
-    genes <- c("NOTHING TO SEARCH")
+  if( is.null( genes ) ||  length ( genes ) == 0 || all(genes == "") ){
+    genes <- NULL
   }
 
 
@@ -84,7 +84,7 @@ erupt <- function(
 
     mutate( ex = case_when(
 
-    gene_name %in% genes ~ "FOUND",
+    !is.null(genes) & gene_name %in% genes ~ "FOUND",
 
     log2FoldChange > up_reg & padj < pval ~ "UP",
 
