@@ -33,7 +33,7 @@ gplop <- function(
   #______________INPUT VALIDATION_____________
 
   # Check if metadata is provided
-  if( is.null(metadata ) )){
+  if( is.null( metadata ) ){
     stop("Metadata must be provided")
   }
 
