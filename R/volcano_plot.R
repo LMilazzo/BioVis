@@ -65,7 +65,7 @@ erupt <- function(
 
 #SEARCH GENES
   if( is.null( genes ) ||  length ( genes ) == 0 || all(genes == "") ){
-    genes <- NULL
+    genes <- character(0)
   }
 
 
@@ -84,7 +84,7 @@ erupt <- function(
 
     mutate( ex = case_when(
 
-    !is.null(genes) & gene_name %in% genes ~ "FOUND",
+    gene_name %in% genes ~ "FOUND",
 
     log2FoldChange > up_reg & padj < pval ~ "UP",
 
@@ -94,9 +94,8 @@ erupt <- function(
 
   )
 
-  print(data)
 
-#___Exclude gens found in the search vector from downward filtering___
+#___Exclude genes found in the search vector from downward filtering___
 
   found_genes <- NULL
 
