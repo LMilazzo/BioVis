@@ -98,7 +98,7 @@ erupt <- function(
 
   found_genes <- NULL
 
-  if( genes != c("NOTHING TO SEARCH") ){
+  if(! is.null(genes) ){
 
     found_genes <- data %>%
       filter(ex == "FOUND") %>%
@@ -224,10 +224,13 @@ erupt <- function(
           plot.title = element_text(color='black', size=30, margin=margin(20,20,5,10,"pt")),
           plot.subtitle = element_text(color='black', size=20, margin=margin(5,5,15,10,"pt")),
           plot.caption = element_text(color='black', size=15, margin=margin(10, 10, 10, 10, "pt"))
-    ) +
+    ) 
+
+  
 
     #Finally plot genes that were searched on top as a distinct color
-    geom_point(data = found_genes,
+  if( ! is.null(found_genes) ){
+    volcano <- volcano + geom_point(data = found_genes,
                aes(x = log2FoldChange,
                    y = -log10(padj)
                    ),
@@ -241,7 +244,7 @@ erupt <- function(
                         label = gene_name),
                     color='mediumseagreen',
                     show.legend = FALSE)
-
+    }
 
 #Return the ggplot from the function
   return(volcano)
