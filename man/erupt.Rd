@@ -11,7 +11,7 @@ erupt(
   pval = 0.05,
   population = 0.3,
   lab_density = 0.25,
-  genes = c("NOTHING TO SEARCH"),
+  genes = NULL,
   title = "",
   subtitle = "",
   caption = ""
