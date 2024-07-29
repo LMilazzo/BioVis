@@ -82,19 +82,19 @@ gplop <- function(
   #_________Set up plot aesthetics_________
   #only the first 4 things are used
 
-  aesthetics <- aes(x = as.factor(.data[[cond[1]]] ) , y = counts )
-
+  # Set up plot aesthetics
+  aesthetics <- aes(x = as.factor(toplot[[cond[1]]]), y = toplot$counts)
+  
   a <- length(cond)
-  if( a >= 2 ){
-    aesthetics$colour = as.factor(.data[[cond[2]]])
+  if (a >= 2) {
+    aesthetics <- modifyList(aesthetics, aes(colour = as.factor(toplot[[cond[2]]])))
   }
-  if( a >= 3 ){
-    aesthetics$shape = as.factor(.data[[cond[3]]])
+  if (a >= 3) {
+    aesthetics <- modifyList(aesthetics, aes(shape = as.factor(toplot[[cond[3]]])))
   }
-  if( a >= 4 ){
-    aesthetics$size = as.factor(.data[[cond[4]]])
+  if (a >= 4) {
+    aesthetics <- modifyList(aesthetics, aes(size = as.factor(toplot[[cond[4]]])))
   }
-
 
   #_________Create the plot_________
 
