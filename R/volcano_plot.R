@@ -94,6 +94,8 @@ erupt <- function(
 
   )
 
+  print(data)
+
 #___Exclude gens found in the search vector from downward filtering___
 
   found_genes <- NULL
