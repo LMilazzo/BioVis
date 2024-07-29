@@ -72,7 +72,7 @@ erupt <- function(
 #______________Handle pvals of 0_____________
   #They are set to 1e-300
   data <- data %>%
-    mutate( padj = ifelse( padj == 0 , 1e-300 , padj ) )
+    mutate( padj = ifelse( padj <= 1e-300 , 1e-300 , padj ) )
 
 #_____Create a row with expression direction with a character representation____
 #down regulated genes are "DOWN"
@@ -205,6 +205,7 @@ erupt <- function(
 
     #The number of genes displayed of total genes in dataset, And the caption
     labs(caption = paste0("Showing ", nrow(data) + nrow(found_genes), "/", start_rows, " genes",
+                          "   --   P-val capped at 1e-300",
                           "\n\n", caption)) +
 
     theme_minimal() +
