@@ -1,6 +1,6 @@
 # GENE COUNTS!
 #
-# This is a FUNction, it plots gene counts!!
+# This is a function, it plots gene counts!!
 # It is a ggplot object.
 #
 #' Plot Gene Counts for a Single Gene
@@ -21,7 +21,7 @@
 #' # gene <- data.frame(gene_name="Gene1", gene_id="G1", padj=0.01, log2FoldChange=2, sample1=10, sample2=15, sample3=5)
 #' # metadata <- data.frame(sample=c("sample1", "sample2", "sample3"), condition=c("A", "B", "A"))
 #' # plotGeneCounts(gene, metadata, c("condition"))
-#'
+#' @export
 gplop <- function(
 
   gene = NULL,
@@ -31,7 +31,7 @@ gplop <- function(
   ){
 
   #______________INPUT VALIDATION_____________
-
+  #----
   # Check if metadata is provided
   if( is.null(metadata ) || ncol(metadata <= 0)){
     stop("Metadata must be provided")
@@ -52,8 +52,10 @@ gplop <- function(
     stop("Denote sample columns starting with '.', or only one sample")
   }
 
+  #----
 
   #_________Extract gene information_________
+  #----
 
   name <- ( gene %>% select(gene_name) )[1]
 
@@ -65,21 +67,29 @@ gplop <- function(
 
   mean <- round( mean( as.numeric(counts) ) )
 
+  #----
 
   #_________Add counts to metadata_________
+  #----
 
   toplot <- metadata %>% mutate( counts = data.frame(t(counts))[,1] )
 
+  #----
 
   #_________Identify intersecting conditions_________
+  #----
+
   #if 0 set to the first available cond
 
   cond <- intersect(conditions, colnames(metadata))
   if( is.null(cond) || length(cond) <= 0 ){
     cond <- metadata[,1]
   }
+  #----
 
   #_________Set up plot aesthetics_________
+  #----
+
   #only the first 4 things are used
 
   aesthetics <- aes( x = as.factor(toplot[[cond[1]]] ) , y = toplot$counts )
@@ -95,10 +105,12 @@ gplop <- function(
     aesthetics$size = as.factor(toplot[[cond[4]]])
   }
 
+  #----
 
   #_________Create the plot_________
+  #----
 
-  x <- ggplot( toplot, aesthetics ) +
+  plot <- ggplot( toplot, aesthetics ) +
     xlab( cond[1] ) +
     ylab( "Count" ) +
 
@@ -131,11 +143,13 @@ gplop <- function(
 
   # Change size of points according to the number of conditions
   if(a >= 4){
-    x <- x + scale_size_discrete(range = c(3, 10)) + geom_beeswarm(cex = 3)
+    plot <- plot + scale_size_discrete(range = c(3, 10)) + geom_beeswarm(cex = 3)
   }else{
-    x <- x + geom_beeswarm(size=3, cex = 3)
+    plot <- plot + geom_beeswarm(size=3, cex = 3)
   }
 
-  return(x)
+  #----
+
+  return(plot)
 
 }

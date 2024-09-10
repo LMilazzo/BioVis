@@ -27,5 +27,4 @@ This function generates a plot to visualize normalized counts for a single gene 
 # gene <- data.frame(gene_name="Gene1", gene_id="G1", padj=0.01, log2FoldChange=2, sample1=10, sample2=15, sample3=5)
 # metadata <- data.frame(sample=c("sample1", "sample2", "sample3"), condition=c("A", "B", "A"))
 # plotGeneCounts(gene, metadata, c("condition"))
-
 }

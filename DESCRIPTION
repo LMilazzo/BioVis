@@ -12,6 +12,10 @@ Imports:
   dplyr,
   ggplot2,
   ggrepel,
-  beeswarm
+  beeswarm,
+  plotly,
+  htmlwidgets,
+  pathfindR,
+  purrr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2  
