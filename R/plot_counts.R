@@ -33,7 +33,7 @@ gplop <- function(
   #______________INPUT VALIDATION_____________
   #----
   # Check if metadata is provided
-  if( is.null(metadata ) || ncol(metadata <= 0)){
+  if( is.null( metadata ) ){
     stop("Metadata must be provided")
   }
 
@@ -92,17 +92,18 @@ gplop <- function(
 
   #only the first 4 things are used
 
-  aesthetics <- aes( x = as.factor(toplot[[cond[1]]] ) , y = toplot$counts )
+  # Set up plot aesthetics
+  aesthetics <- aes(x = as.factor(toplot[[cond[1]]]), y = toplot$counts)
 
   a <- length(cond)
-  if( a >= 2 ){
-    aesthetics$colour = as.factor(toplot[[cond[2]]])
+  if (a >= 2) {
+    aesthetics <- modifyList(aesthetics, aes(colour = as.factor(toplot[[cond[2]]])))
   }
-  if( a >= 3 ){
-    aesthetics$shape = as.factor(toplot[[cond[3]]])
+  if (a >= 3) {
+    aesthetics <- modifyList(aesthetics, aes(shape = as.factor(toplot[[cond[3]]])))
   }
-  if( a >= 4 ){
-    aesthetics$size = as.factor(toplot[[cond[4]]])
+  if (a >= 4) {
+    aesthetics <- modifyList(aesthetics, aes(size = as.factor(toplot[[cond[4]]])))
   }
 
   #----
