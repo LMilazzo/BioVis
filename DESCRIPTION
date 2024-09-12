@@ -16,6 +16,8 @@ Imports:
   plotly,
   htmlwidgets,
   pathfindR,
-  purrr
+  purrr,
+  plotly,
+  htmlwidgets
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2  

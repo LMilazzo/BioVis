@@ -2,10 +2,13 @@
 
 export(enricher)
 export(erupt)
+export(geneheatmap)
 export(gplop)
 import(beeswarm)
 import(dplyr)
 import(ggplot2)
+import(htmlwidgets)
 import(pathfindR)
+import(plotly)
 import(purrr)
 importFrom(ggrepel,geom_text_repel)
