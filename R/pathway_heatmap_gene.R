@@ -1,10 +1,10 @@
 # GENE HEATMAP!
 #
-# This is a function, it filters data a vector of searched genes.
+# This is a function, it filters data a vector of searched genes and returns plots.
 #'
 #' This function filters a dataset based on provided genes and returns plots
 #'
-#' @description This function allows you to filter a dataset of pathway enrichment data by a character vector of genes, a ggplot and plotly are both returned respectivly in a list.
+#' @description This function allows you to filter a dataset of pathway enrichment data by a character vector of genes, a ggplot and plotly are both returned respectively in a list.
 #'
 #' @param data Clustered results from pathfindR experiment using pathfindR cluster_enriched_terms(data, plot_dend = TRUE, plot_clusters_graph = TRUE)
 #' @param genes A vector of gene names to filter the data. Default is NULL.

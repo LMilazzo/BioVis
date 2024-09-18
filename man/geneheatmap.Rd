@@ -15,7 +15,7 @@ geneheatmap(data = NULL, genes = NULL)
 A list (ggplot, plotly) displaying the data
 }
 \description{
-This function allows you to filter a dataset of pathway enrichment data by a character vector of genes, a ggplot and plotly are both returned respectivly in a list.
+This function allows you to filter a dataset of pathway enrichment data by a character vector of genes, a ggplot and plotly are both returned respectively in a list.
 }
 \examples{
 # Example usage:
