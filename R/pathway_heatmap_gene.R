@@ -38,7 +38,7 @@ geneheatmap <- function(
                       "lowest_p", "highest_p", "non_Signif_Snw_Genes", "Up_regulated",
                       "Down_regulated", "all_pathway_genes", "num_genes_in_path", "Cluster", "Status")
 
-  if( intersect(expected_names, colnames(data)) < length(expected_names)) {
+  if( length(intersect(expected_names, colnames(data))) < length(expected_names)) {
     stop("The data is not the correct format")
   }
 
