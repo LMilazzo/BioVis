@@ -98,6 +98,14 @@ enricher <- function(
   #______________CREATE THE PLOT______________
   plot <- enrichment_chart(hits, plot_by_cluster = TRUE)
 
+  plot <- plot +
+    theme(axis.text.y = element_text(size = 15),
+          axis.text.x = element_text(size = 15),
+          legend.text = element_text(size = 12),
+          legend.title = element_text(size = 15),
+          strip.text = element_text(size = 12))
+
+
   return(plot)
 
 }
