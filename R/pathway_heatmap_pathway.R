@@ -133,7 +133,7 @@ pathwayheatmap <- function(
           axis.title.x = element_blank())
 
 
-  plotly_plot <- ggplotly(plot, width = w, height = h, dynamicTicks = FALSE) %>%
+  plotly_plot <- ggplotly(plot, width = 10, height = h, dynamicTicks = FALSE) %>%
     layout(
       margin = list(l = 50, r = 50, b = 100, t = 50), # Left, Right, Bottom, Top margins
       yaxis = list(
