@@ -116,6 +116,7 @@ pathwayheatmap <- function(
 
   #dynamically define height of the plot so that each gene gets a min of 20 pixels added to the verticle height
   h <- nlevels(data$Symbol) * 20
+  w <- nlevels(data$Term_Description) * 25
 
   #______________CREATE THE PLOT______________
   #----
@@ -132,7 +133,7 @@ pathwayheatmap <- function(
           axis.title.x = element_blank())
 
 
-  plotly_plot <- ggplotly(plot, width = 1500, height = h, dynamicTicks = FALSE) %>%
+  plotly_plot <- ggplotly(plot, width = w, height = h, dynamicTicks = FALSE) %>%
     layout(
       margin = list(l = 50, r = 50, b = 100, t = 50), # Left, Right, Bottom, Top margins
       yaxis = list(
