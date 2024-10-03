@@ -116,7 +116,9 @@ pathwayheatmap <- function(
 
   #dynamically define height of the plot so that each gene gets a min of 20 pixels added to the verticle height
   h <- nlevels(data$Symbol) * 20
-  w <- nlevels(data$Term_Description) * 25
+  w <- nlevels(data$Enriched_Term) * 25
+  print(w)
+
 
   #______________CREATE THE PLOT______________
   #----
