@@ -99,6 +99,8 @@ geneheatmap <- function(
     stop("not enough data to plot")
   }
 
+  w <- nrow(data %>% distinct(Symbol)) * 85
+
   #----
 
   #______________CREATE THE PLOT______________
@@ -111,7 +113,7 @@ geneheatmap <- function(
           panel.background = element_blank(),
           axis.title.y = element_blank())
 
-  plotly_plot <- ggplotly(plot) %>%
+  plotly_plot <- ggplotly(plot, height = 800, width = w) %>%
     layout(
       yaxis = list(
         automargin = TRUE,
