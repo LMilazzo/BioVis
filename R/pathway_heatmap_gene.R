@@ -100,6 +100,14 @@ geneheatmap <- function(
   }
 
   w <- nrow(data %>% distinct(Symbol)) * 85
+  if(w < 500){
+    w <- 500
+  }
+
+  h <- nrow(data %>% distinct(Enriched_Term)) * 50
+  if(h < 600){
+    h <- 500
+  }
 
   #----
 
@@ -113,7 +121,7 @@ geneheatmap <- function(
           panel.background = element_blank(),
           axis.title.y = element_blank())
 
-  plotly_plot <- ggplotly(plot, height = 800, width = w) %>%
+  plotly_plot <- ggplotly(plot, height = h, width = w) %>%
     layout(
       yaxis = list(
         automargin = TRUE,
