@@ -61,8 +61,14 @@ pathwayheatmap <- function(
 
     #select the top ten
     topten <- data %>%
-      filter(!Term_Description %in% selected_pathways$Term_description) %>%
+      filter(!ID %in% selected_pathways$ID) %>%
       head(10)
+
+    print("selected")
+    print(selected_pathways)
+
+    print("topten")
+    print(topten)
 
     #if less than 2 are searched then the top ten will always appear
     if(nrow(selected_pathways) < 2){
