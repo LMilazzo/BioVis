@@ -47,6 +47,23 @@ enricher <- function(
     stop("The data is not the correct format")
   }
 
+  #Check data types
+  types <- c("numeric", "character", "numeric",
+             "numeric", "numeric", "numeric",
+             "numeric", "character", "character",
+             "character", "character", "numeric",
+             "numeric", "character")
+  sort <- data %>% select(ID, Term_Description, Fold_Enrichment,
+                          occurrence, support, lowest_p,
+                          highest_p, non_Signif_Snw_Genes, Up_regulated,
+                          Down_regulated, all_pathway_genes, num_genes_in_path,
+                          Cluster, Status)
+  sort <- sapply(sort, class)
+
+  if(! types == sort){
+    stop('Incorrect column class types')
+  }
+
   #Preset for search conditions not used
   if( is.null(clusters) ){
     bycluster <- data %>% filter(ID == "NULL VALUE")
