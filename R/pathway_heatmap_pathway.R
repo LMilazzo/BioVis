@@ -92,6 +92,8 @@ pathwayheatmap <- function(
   #just the number of pathways in the df
   terms_to_plot <- nrow(data)
 
+  print(data)
+
   #Create a dataset using the pathfindR heatmap function
   dummy <- term_gene_heatmap(data, num_terms = terms_to_plot, use_description = TRUE)
   data <- dummy$plot_env$term_genes_df
