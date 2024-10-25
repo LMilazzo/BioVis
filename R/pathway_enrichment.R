@@ -60,7 +60,9 @@ enricher <- function(
                           Cluster, Status)
   sort <- sapply(sort, class)
 
-  if(!sum(types == sort) == 14){
+  print(sort)
+  print(sort == types)
+  if(FALSE %in% (sort == types)){
     stop('Incorrect column class types')
   }
 
