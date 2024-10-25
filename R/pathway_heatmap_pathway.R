@@ -44,20 +44,29 @@ pathwayheatmap <- function(
   }
 
   #Check data types
-  types <- c("numeric", "character", "numeric",
-             "numeric", "numeric", "numeric",
-             "numeric", "character", "character",
-             "character", "character", "numeric",
-             "numeric", "character")
-  sort <- data %>% select(ID, Term_Description, Fold_Enrichment,
-                          occurrence, support, lowest_p,
-                          highest_p, non_Signif_Snw_Genes, Up_regulated,
-                          Down_regulated, all_pathway_genes, num_genes_in_path,
-                          Cluster, Status)
-  sort <- sapply(sort, class)
+  original_na_counts <- sapply(colnames(data),
+                               function(col) sum(is.na(data[[col]])))
 
-  if(!sum(types == sort) == 14){
-    stop('Incorrect column class types')
+  data$ID <- as.character(data$ID)
+  data$Term_Description <- as.character(data$Term_Description)
+  data$non_Signif_Snw_Genes <- as.character(data$non_Signif_Snw_Genes)
+  data$Up_regulated <- as.character(data$Up_regulated)
+  data$Down_regulated <- as.character(data$Down_regulated)
+  data$all_pathway_genes <- as.character(data$all_pathway_genes)
+  data$Status <- as.character(data$Status)
+  data$Fold_Enrichment <- as.numeric(data$Fold_Enrichment)
+  data$occurrence <- as.numeric(data$occurrence)
+  data$support <- as.numeric(data$support)
+  data$lowest_p <- as.numeric(data$lowest_p)
+  data$highest_p <- as.numeric(data$highest_p)
+  data$num_genes_in_path <- as.numeric(data$num_genes_in_path)
+  data$Cluster <- as.numeric(data$Cluster)
+
+  for(i in colnames(data)){
+    new_na <- sum(is.na(data[[i]]))
+    if(!new_na == original_na_counts[[i]]){
+      stop(paste0('Coercion of column ', i, ' to proper class introduced na values. ', i, ' requires numeric.'))
+    }
   }
 
   #----
