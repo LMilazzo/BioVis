@@ -98,13 +98,13 @@ score_pathway_terms <- function(
   }
 
   temp <- data.frame(scores)
-  h <- nrow(temp) * 50
+  h <- nrow(temp) * 20
   if(h < 600){
-    h <- 500
+    h <- 600
   }
-  w <- ncol(temp) * 85
-  if(w < 500){
-    w <- 500
+  w <- ncol(temp) * 50
+  if(w < 600){
+    w <- w + 600
   }
 
   #make plot
@@ -117,8 +117,8 @@ score_pathway_terms <- function(
     high = "#1f4037" # default = "red"
   ) +
     theme(
-      axis.text.x = element_text(size = 10, color = 'black'),
-      axis.text.y = element_text(size = 10, color = 'black'),
+      axis.text.x = element_text(size = 15, color = 'black'),
+      axis.text.y = element_text(size = 15, color = 'black'),
       panel.background = element_blank()
     ) +
     labs(x = '', y = '')
