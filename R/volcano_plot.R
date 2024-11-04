@@ -192,9 +192,10 @@ erupt <- function(
   #----
 
     combined_data <- rbind(
-      data.frame(data, group = "main"),
-      data.frame(found_genes, group = "found")
+      data.frame(data),
+      data.frame(found_genes)
     )
+  
     volcano <- ggplot( data,
                        aes(x = log2FoldChange,
                            y = -log10(padj),
@@ -278,7 +279,7 @@ erupt <- function(
                            ifelse(ex == "DOWN", "#2171b5", 
                             ifelse(ex == "found", "mediumseagreen", "grey"))  # Default color
                       )),
-                      show.legend = FALSE)
+                      show.legend = FALSE, na.rm = TRUE)
       }
 
   #----
