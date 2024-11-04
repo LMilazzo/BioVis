@@ -272,7 +272,8 @@ erupt <- function(
                           y = -log10(padj),
                           label = gene_name),
                       color='mediumseagreen',
-                      show.legend = FALSE)
+                      show.legend = FALSE,
+                     inherit.aes = TRUE)
       }
 
   #----
