@@ -279,13 +279,13 @@ erupt <- function(
                       aes(x = log2FoldChange,
                           y = -log10(padj),
                           label = glabel,
-                          color = case_when(
+                        ),
+                      color = case_when(
                             ex == "UP" ~ "#bb0c00",        # Color for "UP"
                             ex == "DOWN" ~ "#2171b5",      # Color for "DOWN"
                             ex == "found" ~ "mediumseagreen", # Color for "found"
                             TRUE ~ "grey"                  # Default color for other cases
-                          )
-                        ),
+                          ),
                       show.legend = FALSE, 
                       na.rm = TRUE, 
                       max.overlaps = Inf)
