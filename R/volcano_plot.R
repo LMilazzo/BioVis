@@ -203,8 +203,7 @@ erupt <- function(
     volcano <- ggplot( data,
                        aes(x = log2FoldChange,
                            y = -log10(padj),
-                           color = ex,
-                           label = glabel
+                           color = ex
                           )
                        ) +
 
@@ -274,17 +273,23 @@ erupt <- function(
                  color='lawngreen',
                  size=3,
                  show.legend = FALSE) +
-
-      geom_text_repel(data = combined_data,
+      }
+  
+    volcano + geom_text_repel(data = combined_data,
                       aes(x = log2FoldChange,
                           y = -log10(padj),
-                          label = gene_name,
-                         color = ifelse(ex == "UP", "#bb0c00", 
-                           ifelse(ex == "DOWN", "#2171b5", 
-                            ifelse(ex == "found", "mediumseagreen", "grey"))  # Default color
-                      )),
-                      show.legend = FALSE, na.rm = TRUE)
-      }
+                          label = glabel,
+                          color = case_when(
+                            ex == "UP" ~ "#bb0c00",        # Color for "UP"
+                            ex == "DOWN" ~ "#2171b5",      # Color for "DOWN"
+                            ex == "found" ~ "mediumseagreen", # Color for "found"
+                            TRUE ~ "grey"                  # Default color for other cases
+                          )
+                        ),
+                      show.legend = FALSE, 
+                      na.rm = TRUE, 
+                      max.overlaps = Inf)
+      
 
   #----
 
