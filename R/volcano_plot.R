@@ -191,6 +191,10 @@ erupt <- function(
   #The Volcano Plot!!!!!!!!!___________________________________________________
   #----
 
+    combined_data <- rbind(
+      data.frame(data, group = "main"),
+      data.frame(found_genes, group = "found")
+    )
     volcano <- ggplot( data,
                        aes(x = log2FoldChange,
                            y = -log10(padj),
@@ -201,7 +205,6 @@ erupt <- function(
 
       #Plot dot and text labels
       geom_point(size=2) +
-      geom_text_repel(max.overlaps = Inf, na.rm=TRUE)+
 
       #Plot scale
       scale_x_continuous(breaks = seq(-35, 35, 2)) +
@@ -267,13 +270,15 @@ erupt <- function(
                  size=3,
                  show.legend = FALSE) +
 
-      geom_text_repel(data = found_genes,
+      geom_text_repel(data = combined_data,
                       aes(x = log2FoldChange,
                           y = -log10(padj),
-                          label = gene_name),
-                      color='mediumseagreen',
-                      show.legend = FALSE,
-                     inherit.aes = TRUE)
+                          label = gene_name,
+                         color = ifelse(ex == "UP", "#bb0c00", 
+                           ifelse(ex == "DOWN", "#2171b5", 
+                            ifelse(ex == "found", "mediumseagreen", "grey"))  # Default color
+                      )),
+                      show.legend = FALSE)
       }
 
   #----
