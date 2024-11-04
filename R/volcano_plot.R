@@ -273,7 +273,9 @@ erupt <- function(
                           label = gene_name),
                       color='mediumseagreen',
                       show.legend = FALSE,
-                      force = 2)
+                      force = 2,
+                      size = 4,
+                      max.overlaps = 1)
       }
 
   #----
