@@ -275,7 +275,9 @@ erupt <- function(
                       show.legend = FALSE,
                       force = 2,
                       size = 4,
-                      max.overlaps = 1)
+                      max.overlaps = 1,
+                      box.padding = 0.5,
+                      point.padding = 0.3)
       }
 
   #----
