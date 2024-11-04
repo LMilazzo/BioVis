@@ -272,12 +272,7 @@ erupt <- function(
                           y = -log10(padj),
                           label = gene_name),
                       color='mediumseagreen',
-                      show.legend = FALSE,
-                      force = 2,
-                      size = 4,
-                      max.overlaps = 1,
-                      box.padding = 0.5,
-                      point.padding = 0.3)
+                      show.legend = FALSE)
       }
 
   #----
