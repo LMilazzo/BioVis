@@ -191,10 +191,14 @@ erupt <- function(
   #The Volcano Plot!!!!!!!!!___________________________________________________
   #----
 
-    combined_data <- rbind(
-      data.frame(data),
-      data.frame(found_genes)
-    )
+   if(nrow(found_genes) > 0){
+      combined_data <- rbind(
+        data.frame(data),
+        data.frame(found_genes)
+      )
+    }else{
+     combined_data <- data
+    }
   
     volcano <- ggplot( data,
                        aes(x = log2FoldChange,
