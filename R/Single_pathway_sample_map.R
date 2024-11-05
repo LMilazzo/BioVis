@@ -16,7 +16,7 @@
 #' @import pheatmap
 #' @import ggplotify
 #' @export
-sample_pathway_heatmap <- function(
+single_pathway_heatmap <- function(
 
   pathway = NULL,
   DEG_results = NULL,
