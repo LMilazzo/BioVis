@@ -81,9 +81,6 @@ single_pathway_heatmap <- function(
     filter(tolower(Term_Description) == tolower(pathway)) %>%
     select(Term_Description, Fold_Enrichment, all_pathway_genes,
            Up_regulated, Down_regulated, Status, non_Signif_Snw_Genes)
-  print(single_p)
-  print("______________________")
-  print(p$Term_Description)
 
   if(nrow(single_p) < 1){
     stop('No pathway matches the search')
@@ -107,6 +104,7 @@ single_pathway_heatmap <- function(
 
   print(intersect(tolower(DEG_results$gene_name), tolower(gene_list$gene_name))
 
+
   #Sample columns
   data <- DEG_results %>%
     select(padj, gene_name, starts_with('.')) %>%
@@ -116,11 +114,11 @@ single_pathway_heatmap <- function(
     select(-padj) %>%
     tibble::column_to_rownames('gene_name') %>%
     as.matrix()
-
-  if(ncol(data) < 1){
-    stop('No sample columns found')
-  }
-
+  print(data)
+  # if(ncol(data) < 1){
+  #   stop('No sample columns found')
+  # }
+  stop("___________")
   data_log2 <- log2(data + 1)
 
   plot <- pheatmap(data_log2, scale="row", fontsize = 11, angle_col = '45')
