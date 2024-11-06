@@ -79,16 +79,10 @@ single_pathway_heatmap <- function(
 
   p$Term_Description <- tolower(p$Term_Description)
 
-  print(p$Term_Description == tolower(pathway))
-
   single_p <- p %>%
     filter(Term_Description == tolower(pathway)) %>%
     select(Term_Description, Fold_Enrichment, all_pathway_genes,
            Up_regulated, Down_regulated, Status, non_Signif_Snw_Genes)
-
-  print(single_p %>% select(Term_Description, Fold_Enrichment))
-  print("++++++++++++++++++++++++++++++++++++++")
-  print(nrow(single_p))
 
   if(nrow(single_p) < 1){
     stop('No pathway matches the search')
