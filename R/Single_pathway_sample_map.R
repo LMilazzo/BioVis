@@ -87,7 +87,7 @@ single_pathway_heatmap <- function(
            Up_regulated, Down_regulated, Status, non_Signif_Snw_Genes)
 
   print(single_p)
-  print"++++++++++++++++++++++++++++++++++++++"
+  print("++++++++++++++++++++++++++++++++++++++")
   print(nrow(single_p))
 
   if(nrow(single_p) < 1){
