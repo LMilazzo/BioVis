@@ -130,7 +130,7 @@ single_pathway_heatmap <- function(
 
   plot <- pheatmap(data_log2, scale="row", fontsize = 11, angle_col = '45')
 
-  ggplot <- ggplotify::as.ggplot(plot) +
+  ggp <- ggplotify::as.ggplot(plot) +
     labs(title = pathway)
 
   #Recommended dims
@@ -145,7 +145,7 @@ single_pathway_heatmap <- function(
   }
 
 
-  return(list(ggplot, height, width))
+  return(list(gg, height, width))
 
 
 }
