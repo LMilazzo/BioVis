@@ -46,7 +46,7 @@ single_pathway_heatmap <- function(
                       "Down_regulated", "all_pathway_genes", "num_genes_in_path", "Cluster", "Status")
 
   if( length(intersect(expected_names, colnames(p))) < length(expected_names)) {
-    stop("The p is not the correct format")
+    stop("The data is not the correct format")
   }
 
   #Check p types
@@ -81,6 +81,9 @@ single_pathway_heatmap <- function(
     filter(tolower(Term_Description) == tolower(pathway)) %>%
     select(Term_Description, Fold_Enrichment, all_pathway_genes,
            Up_regulated, Down_regulated, Status, non_Signif_Snw_Genes)
+  print(single_p)
+  print("______________________")
+  print(p$Term_Description)
 
   if(nrow(single_p) < 1){
     stop('No pathway matches the search')
