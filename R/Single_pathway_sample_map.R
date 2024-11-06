@@ -106,19 +106,22 @@ single_pathway_heatmap <- function(
 
 
   #Sample columns
-  data <- DEG_results %>%
-    select(padj, gene_name, starts_with('.')) %>%
-    filter(tolower(gene_name) %in% tolower(gene_list$gene_name)) %>%
-    arrange(padj) %>%
-    head(n = genes_listed) %>%
-    select(-padj) %>%
-    tibble::column_to_rownames('gene_name') %>%
-    as.matrix()
-  print(data)
+  # data <- DEG_results %>%
+  #   select(padj, gene_name, starts_with('.')) %>%
+  #   filter(tolower(gene_name) %in% tolower(gene_list$gene_name)) %>%
+  #   arrange(padj) %>%
+  #   head(n = genes_listed) %>%
+  #   select(-padj) %>%
+  #   tibble::column_to_rownames('gene_name') %>%
+  #   as.matrix()
+  #
+  # print(data)
+
   # if(ncol(data) < 1){
   #   stop('No sample columns found')
   # }
   stop("___________")
+
   data_log2 <- log2(data + 1)
 
   plot <- pheatmap(data_log2, scale="row", fontsize = 11, angle_col = '45')
