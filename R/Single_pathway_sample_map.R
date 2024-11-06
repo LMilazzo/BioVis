@@ -86,7 +86,7 @@ single_pathway_heatmap <- function(
     select(Term_Description, Fold_Enrichment, all_pathway_genes,
            Up_regulated, Down_regulated, Status, non_Signif_Snw_Genes)
 
-  print(single_p)
+  print(single_p %>% select(Term_Description, Fold_Enrichment))
   print("++++++++++++++++++++++++++++++++++++++")
   print(nrow(single_p))
 
