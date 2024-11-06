@@ -102,15 +102,7 @@ single_pathway_heatmap <- function(
     genes_listed <- 10
   }
 
-  print("________GENE LIST__________")
-  print(gene_list)
-  print("__________DEG______________")
-  print(head(DEG_results))
-  check <- DEG_results %>%
-    select(padj, gene_name, starts_with('.')) %>%
-    filter(tolower(gene_name) %in% tolower(gene_list$gene_name))
-  print("__________CHECK____________")
-  print(head(check))
+
   #Sample columns
   data <- DEG_results %>%
     select(padj, gene_name, starts_with('.')) %>%
@@ -121,10 +113,9 @@ single_pathway_heatmap <- function(
     tibble::column_to_rownames('gene_name') %>%
     as.matrix()
 
-  # if(ncol(data) < 1){
-  #   stop('No sample columns found')
-  # }
-  stop("___________")
+  if(ncol(data) < 1){
+    stop('No sample columns found')
+  }
 
   data_log2 <- log2(data + 1)
 
