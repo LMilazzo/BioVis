@@ -105,6 +105,8 @@ single_pathway_heatmap <- function(
     genes_listed <- 10
   }
 
+  print(gene_list)
+
   #Sample columns
   data <- DEG_results %>%
     select(padj, gene_name, starts_with('.')) %>%
