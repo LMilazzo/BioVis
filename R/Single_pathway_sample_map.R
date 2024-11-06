@@ -102,20 +102,20 @@ single_pathway_heatmap <- function(
     genes_listed <- 10
   }
 
-  print(intersect(tolower(DEG_results$gene_name), tolower(gene_list$gene_name))
+  print(intersect(tolower(DEG_results$gene_name), tolower(gene_list$gene_name)))
 
 
   #Sample columns
-  # data <- DEG_results %>%
-  #   select(padj, gene_name, starts_with('.')) %>%
-  #   filter(tolower(gene_name) %in% tolower(gene_list$gene_name)) %>%
-  #   arrange(padj) %>%
-  #   head(n = genes_listed) %>%
-  #   select(-padj) %>%
-  #   tibble::column_to_rownames('gene_name') %>%
-  #   as.matrix()
-  #
-  # print(data)
+  data <- DEG_results %>%
+    select(padj, gene_name, starts_with('.')) %>%
+    filter(tolower(gene_name) %in% tolower(gene_list$gene_name)) %>%
+    arrange(padj) %>%
+    head(n = genes_listed) %>%
+    select(-padj) %>%
+    tibble::column_to_rownames('gene_name') %>%
+    as.matrix()
+
+  print(data)
 
   # if(ncol(data) < 1){
   #   stop('No sample columns found')
