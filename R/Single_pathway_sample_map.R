@@ -91,7 +91,6 @@ single_pathway_heatmap <- function(
   print(nrow(single_p))
 
   if(nrow(single_p) < 1){
-    print('failure')
     stop('No pathway matches the search')
   }
 
