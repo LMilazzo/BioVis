@@ -102,8 +102,10 @@ single_pathway_heatmap <- function(
     genes_listed <- 10
   }
 
+  print("intersection")
   print(intersect(tolower(DEG_results$gene_name), tolower(gene_list$gene_name)))
-
+  print('%in%')
+  print(tolower(DEG_results) %in% tolower(gene_list$gene_name))
 
   #Sample columns
   data <- DEG_results %>%
@@ -115,6 +117,7 @@ single_pathway_heatmap <- function(
     tibble::column_to_rownames('gene_name') %>%
     as.matrix()
 
+  print('data')
   print(data)
 
   # if(ncol(data) < 1){
