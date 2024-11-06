@@ -105,7 +105,7 @@ single_pathway_heatmap <- function(
     genes_listed <- 10
   }
 
-  print(gene_list)
+  print(intersect(tolower(DEG_results$gene_name), tolower(gene_list$gene_name))
 
   #Sample columns
   data <- DEG_results %>%
