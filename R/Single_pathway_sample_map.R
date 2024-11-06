@@ -77,8 +77,12 @@ single_pathway_heatmap <- function(
 
   #Main stuff
 
+  p$Term_Description <- tolower(p$Term_Description)
+
+  print(p$Term_Description == tolower(pathway))
+
   single_p <- p %>%
-    filter(tolower(Term_Description) == tolower(pathway)) %>%
+    filter(Term_Description == tolower(pathway)) %>%
     select(Term_Description, Fold_Enrichment, all_pathway_genes,
            Up_regulated, Down_regulated, Status, non_Signif_Snw_Genes)
 
