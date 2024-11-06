@@ -106,7 +106,11 @@ single_pathway_heatmap <- function(
   print(gene_list)
   print("__________DEG______________")
   print(head(DEG_results))
-
+  check <- DEG_results %>%
+    select(padj, gene_name, starts_with('.')) %>%
+    filter(tolower(gene_name) %in% tolower(gene_list$gene_name))
+  print("__________CHECK____________")
+  print(head(check))
   #Sample columns
   data <- DEG_results %>%
     select(padj, gene_name, starts_with('.')) %>%
