@@ -130,6 +130,8 @@ single_pathway_heatmap <- function(
   #
   # return(gg)
 
+  print(plot)
+
   return(plot)
 
 }
