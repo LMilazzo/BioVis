@@ -128,11 +128,8 @@ single_pathway_heatmap <- function(
 
   #Recommended dims
   height <- nrow(gene_list) * 10 + 150
-  if(height < 500){
-    height <- 500
-  }
 
-  width <- ncol(data.frame(data)) * 100 + 200
+  width <- ncol(data.frame(data)) * 50 + 200
   if(width < 500){
     width <- 500
   }
