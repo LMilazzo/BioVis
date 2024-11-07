@@ -127,7 +127,7 @@ single_pathway_heatmap <- function(
     labs(title = pathway)
 
   #Recommended dims
-  height <- nrow(gene_list) * 10 + 150
+  height <- nrow(gene_list) * 20
 
   width <- ncol(data.frame(data)) * 50 + 200
   if(width < 500){
