@@ -12,13 +12,13 @@ single_pathway_heatmap(
 )
 }
 \arguments{
+\item{pathway}{a sting of the searched pathway to match}
+
 \item{DEG_results}{A data frame containing gene expression data.}
 
 \item{Pathfinder_results}{A data frame containing pathway expression data}
 
 \item{genes_listed}{the number of pathway genes to include ranked by padj}
-
-\item{pathwya}{a sting of the searched pathway to match}
 }
 \value{
 A ggplot heatmap

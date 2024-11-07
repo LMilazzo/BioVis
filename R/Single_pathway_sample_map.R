@@ -8,7 +8,7 @@
 #'
 #' @param DEG_results A data frame containing gene expression data.
 #' @param Pathfinder_results A data frame containing pathway expression data
-#' @param pathwya a sting of the searched pathway to match
+#' @param pathway a sting of the searched pathway to match
 #' @param genes_listed the number of pathway genes to include ranked by padj
 #' @return A ggplot heatmap
 #' @import dplyr
@@ -127,12 +127,12 @@ single_pathway_heatmap <- function(
     labs(title = pathway)
 
   #Recommended dims
-  height <- nrow(gene_list) * 25 + 150
+  height <- nrow(gene_list) * 10 + 150
   if(height < 500){
     height <- 500
   }
 
-  width <- ncol(data.frame(data)) * 90 + 200
+  width <- ncol(data.frame(data)) * 100 + 200
   if(width < 500){
     width <- 500
   }
