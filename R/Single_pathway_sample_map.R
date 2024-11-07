@@ -120,18 +120,6 @@ single_pathway_heatmap <- function(
 
   data_log2 <- log2(data + 1)
 
-  print("________________________")
-  print(data_log2)
-
-  plot <- pheatmap(data_log2, scale="row", fontsize = 11, angle_col = '45')
-
-  # gg <- ggplotify::as.ggplot(plot) +
-  #   labs(title = pathway)
-  #
-  # return(gg)
-
-  print(plot)
-
-  return(plot)
+  return(data_log2)
 
 }
