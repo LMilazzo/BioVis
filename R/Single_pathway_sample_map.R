@@ -85,7 +85,7 @@ single_pathway_heatmap <- function(
            Up_regulated, Down_regulated, Status, non_Signif_Snw_Genes)
 
   if(nrow(single_p) < 1){
-    stop('No pathway matches the search')
+    return()
   }
 
   if(nrow(single_p) > 1){
