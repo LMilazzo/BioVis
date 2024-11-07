@@ -104,7 +104,6 @@ single_pathway_heatmap <- function(
     genes_listed <- 10
   }
 
-
   #Sample columns
   data <- DEG_results %>%
     select(padj, gene_name, starts_with('.')) %>%
@@ -114,6 +113,9 @@ single_pathway_heatmap <- function(
     select(-padj) %>%
     tibble::column_to_rownames('gene_name') %>%
     as.matrix()
+
+  print("_________________________")
+  print(head(data))
 
   if(ncol(data) < 1){
     stop('No sample columns found')
@@ -127,6 +129,5 @@ single_pathway_heatmap <- function(
     labs(title = pathway)
 
   return(gg)
-
 
 }
