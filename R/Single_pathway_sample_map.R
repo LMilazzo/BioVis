@@ -36,7 +36,7 @@ single_pathway_heatmap <- function(
   }
 
   if(! all(c('padj','gene_name') %in% colnames(DEG_results)) ){
-    stop('DEG results need a gene_name column')
+    stop('DEG results needs a padj and gene_name column')
   }
 
   #Check Pathfinder p columns
@@ -114,14 +114,14 @@ single_pathway_heatmap <- function(
     tibble::column_to_rownames('gene_name') %>%
     as.matrix()
 
-  print("_________________________")
-  print(head(data))
-
   if(ncol(data) < 1){
     stop('No sample columns found')
   }
 
   data_log2 <- log2(data + 1)
+
+  print("________________________")
+  print(data_log2)
 
   plot <- pheatmap(data_log2, scale="row", fontsize = 11, angle_col = '45')
 
