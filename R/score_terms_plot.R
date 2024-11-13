@@ -107,6 +107,8 @@ score_pathway_terms <- function(
     w <- w + 600
   }
 
+  print(scores)
+
   #make plot
   plot <- plot_scores(
     score_matrix = scores,
