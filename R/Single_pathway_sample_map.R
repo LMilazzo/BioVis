@@ -110,9 +110,10 @@ single_pathway_heatmap <- function(
     filter(tolower(gene_name) %in% tolower(gene_list$gene_name)) %>%
     arrange(padj) %>%
     head(n = genes_listed) %>%
-    select(-padj) %>%
-    tibble::column_to_rownames('gene_name') %>%
-    as.matrix()
+    select(-padj)
+
+  rownames(data) <- data$gene_name
+  data <- data %>%select(-gene_name) %>% as.matrix()
 
   if(ncol(data) < 1){
     stop('No sample columns found')
