@@ -120,7 +120,7 @@ geneheatmap <- function(
   data <- data %>% filter(Symbol %in% genes)
   #Remove bad rows
   data$value[is.na(data$value)] <- "no expression"
-
+  print(data)
   if(nrow(data) < 1){
     stop("not enough data to plot")
   }
