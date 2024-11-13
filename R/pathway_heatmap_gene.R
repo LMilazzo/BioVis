@@ -119,7 +119,7 @@ geneheatmap <- function(
   #Filtered to searched genes
   data <- data %>% filter(Symbol %in% genes)
   #Remove bad rows
-  data <- data %>% drop_na()
+  data$value[is.na(data$value)] <- "no expression"
 
   if(nrow(data) < 1){
     stop("not enough data to plot")
@@ -141,7 +141,7 @@ geneheatmap <- function(
   #----
   plot <- ggplot(data, aes(x = Symbol, y = Enriched_Term, fill = value)) +
     geom_tile(color = 'black') +
-    scale_fill_manual(values = c("up" = 'skyblue', "down" = 'indianred3')) +
+    scale_fill_manual(values = c("up" = 'skyblue', "down" = 'indianred3', "no expression" = "grey25")) +
     theme(panel.grid.minor = element_blank(),
           panel.grid.major = element_blank(),
           panel.background = element_blank(),
