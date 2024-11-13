@@ -67,10 +67,11 @@ score_pathway_terms <- function(
   if(! 'Gene_symbol' %in% colnames(abundance)){
     stop('Gene_symbol is a req column in abundance data')
   }
-  rownames(abundance) <- NULL
+  print(head(abundance))
   abundance <- abundance %>% tibble::column_to_rownames('Gene_symbol')
   abundance <- as.matrix(abundance)
 
+  print(head(abundance))
   if(!is.numeric(abundance)){
     stop('non numeric value found in abundance data matrix')
   }
