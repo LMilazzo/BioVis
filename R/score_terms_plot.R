@@ -68,7 +68,8 @@ score_pathway_terms <- function(
     stop('Gene_symbol is a req column in abundance data')
   }
   print(head(abundance))
-  abundance <- abundance %>% tibble::column_to_rownames('Gene_symbol')
+  rownames(abundance) <- abundance$Gene_symbol
+  abundance <- abundance %>% select(-Gene_symbol)
   abundance <- as.matrix(abundance)
 
   print(head(abundance))
