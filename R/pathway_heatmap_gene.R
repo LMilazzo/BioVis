@@ -131,7 +131,7 @@ geneheatmap <- function(
   }
 
   if(nrow(data) < 1){
-    stop("not enough data to plot")
+    return(NULL)
   }
 
   w <- nrow(data %>% distinct(Symbol)) * 85
@@ -150,7 +150,7 @@ geneheatmap <- function(
   #----
   plot <- ggplot(data, aes(x = Symbol, y = Enriched_Term, fill = value)) +
     geom_tile(color = 'black') +
-    scale_fill_manual(values = c("up" = 'skyblue', "down" = 'indianred3', "no expression" = "grey25")) +
+    scale_fill_manual(values = c("up" = 'skyblue', "down" = 'indianred3', "no expression" = "grey45")) +
     theme(panel.grid.minor = element_blank(),
           panel.grid.major = element_blank(),
           panel.background = element_blank(),
