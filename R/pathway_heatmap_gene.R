@@ -124,9 +124,7 @@ geneheatmap <- function(
   if(nrow(data) > 0){
     for(g in genes){
       if(!g %in% data$Symbol){
-        temp <- data %>% unique(Enriched_Term)
-        temp$Symbol <- g
-        temp$value <- "no expression"
+        temp <- data.frame(Enriched_Term = data$Enriched_Term %>% unique(), Symbol = g, value = "no expression")
         data <- data %>% rbind(temp)
       }
     }
