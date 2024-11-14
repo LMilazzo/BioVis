@@ -119,8 +119,19 @@ geneheatmap <- function(
   #Filtered to searched genes
   data <- data %>% filter(Symbol %in% genes)
   #Remove bad rows
-  data$value[is.na(data$value)] <- "no expression"
-  print(data)
+  data <- data %>% drop_na()
+
+  if(nrow(data) > 0){
+    for(g %in% genes){
+      if(!g %in% data$Symbol){
+        temp <- data %>% unique(Enriched_Term)
+        temp$Symbol <- g
+        temp$value <- "no expression"
+        data <- data %>% rbind(temp)
+      }
+    }
+  }
+
   if(nrow(data) < 1){
     stop("not enough data to plot")
   }
