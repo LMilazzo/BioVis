@@ -139,7 +139,7 @@ geneheatmap <- function(
     w <- 500
   }
 
-  h <- nrow(data %>% distinct(Enriched_Term)) * 50
+  h <- nrow(data %>% distinct(Enriched_Term)) * 25
   if(h < 600){
     h <- 500
   }
