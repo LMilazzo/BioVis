@@ -122,7 +122,7 @@ geneheatmap <- function(
   data <- data %>% drop_na()
 
   if(nrow(data) > 0){
-    for(g %in% genes){
+    for(g in genes){
       if(!g %in% data$Symbol){
         temp <- data %>% unique(Enriched_Term)
         temp$Symbol <- g
