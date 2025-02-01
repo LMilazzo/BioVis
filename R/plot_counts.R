@@ -127,7 +127,7 @@ gplop <- function(
          size = if (a >= 4) cond[4] else NULL
     ) +
 
-    theme(plot.margin = margin(3, 2, 2, 2, "pt"),
+    theme(plot.margin = margin(7, 6, 6, 6, "pt"),
           axis.title.x = element_text(color='black', size = 15 + textSizeAdjustment, margin = margin(2, 2, 2, 2, "pt")),
           axis.title.y = element_text(color='black', size=15 + textSizeAdjustment, margin = margin(2, 2, 2, 2, "pt")),
           axis.text.y = element_text(color='black', size=15 + textSizeAdjustment),
@@ -141,8 +141,7 @@ gplop <- function(
           legend.margin = margin(2, 2, 2, 2, "pt"),
           plot.title = element_text(color='black', size=20 + textSizeAdjustment, margin=margin(2, 2, 2, 2, "pt")),
           plot.subtitle = element_text(color='black', size=15 + textSizeAdjustment, margin=margin(2, 2, 5, 2, "pt")),
-          plot.caption = element_text(color='black', size=10 + textSizeAdjustment, margin=margin(2, 80, 2, 1, "pt")),
-          plot.margin = margin(8,8,8,8,"pt")
+          plot.caption = element_text(color='black', size=10 + textSizeAdjustment, margin=margin(2, 80, 2, 1, "pt"))
     )
 
   # Change size of points according to the number of conditions
