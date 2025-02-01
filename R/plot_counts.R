@@ -127,7 +127,7 @@ gplop <- function(
          size = if (a >= 4) cond[4] else NULL
     ) +
 
-    theme(plot.margin = margin(7, 6, 6, 6, "pt"),
+    theme(plot.margin = margin(12, 12, 12, 12, "pt"),
           axis.title.x = element_text(color='black', size = 15 + textSizeAdjustment, margin = margin(2, 2, 2, 2, "pt")),
           axis.title.y = element_text(color='black', size=15 + textSizeAdjustment, margin = margin(2, 2, 2, 2, "pt")),
           axis.text.y = element_text(color='black', size=15 + textSizeAdjustment),
