@@ -26,7 +26,8 @@ gplop <- function(
 
   gene = NULL,
   metadata = NULL,
-  conditions = NULL
+  conditions = NULL,
+  textSizeAdjustment = 0
 
   ){
 
@@ -126,20 +127,21 @@ gplop <- function(
     ) +
 
     theme(plot.margin = margin(3, 2, 2, 2, "pt"),
-          axis.title.x = element_text(color='black', size = 15, margin = margin(2, 2, 2, 2, "pt")),
-          axis.title.y = element_text(color='black', size=15, margin = margin(2, 2, 2, 2, "pt")),
-          axis.text.y = element_text(color='black', size=15),
-          axis.text.x = element_text(color='black', size=15),
+          axis.title.x = element_text(color='black', size = 15 + textSizeAdjustment, margin = margin(2, 2, 2, 2, "pt")),
+          axis.title.y = element_text(color='black', size=15 + textSizeAdjustment, margin = margin(2, 2, 2, 2, "pt")),
+          axis.text.y = element_text(color='black', size=15 + textSizeAdjustment),
+          axis.text.x = element_text(color='black', size=15 + textSizeAdjustment),
           panel.grid.minor.y = element_blank(),
           panel.grid.minor.x = element_blank(),
           axis.line.x = element_line(color='grey'),
           axis.line.y = element_line(color='grey'),
-          legend.text = element_text(color='black', size=20),
-          legend.title = element_text(color='black', size=20),
+          legend.text = element_text(color='black', size=20 + textSizeAdjustment),
+          legend.title = element_text(color='black', size=20 + textSizeAdjustment),
           legend.margin = margin(2, 2, 2, 2, "pt"),
-          plot.title = element_text(color='black', size=20, margin=margin(2, 2, 2, 2, "pt")),
-          plot.subtitle = element_text(color='black', size=15, margin=margin(2, 2, 5, 2, "pt")),
-          plot.caption = element_text(color='black', size=10, margin=margin(2, 80, 2, 1, "pt"))
+          plot.title = element_text(color='black', size=20 + textSizeAdjustment, margin=margin(2, 2, 2, 2, "pt")),
+          plot.subtitle = element_text(color='black', size=15 + textSizeAdjustment, margin=margin(2, 2, 5, 2, "pt")),
+          plot.caption = element_text(color='black', size=10 + textSizeAdjustment, margin=margin(2, 80, 2, 1, "pt")),
+          plot.margin = margin(8,8,8,8,"pt")
     )
 
   # Change size of points according to the number of conditions
