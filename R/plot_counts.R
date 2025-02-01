@@ -12,6 +12,7 @@
 #' @param gene A data frame containing a single row with gene information including gene name, gene id, fold change, and adjusted p-value.
 #' @param metadata A data frame containing metadata for the samples.
 #' @param conditions A vector of column names in the metadata to be used for the plot aesthetics.
+#' @param textSizeAdjustment a numerical value of how much the text should be resized
 #' @return A ggplot object representing the gene counts across samples with additional conditions used for coloring, shaping, and sizing the points.
 #' @import ggplot2
 #' @import dplyr
